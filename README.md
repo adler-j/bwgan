@@ -27,3 +27,5 @@ The code has some dependencies that can be easily installed
 $ pip install https://github.com/adler-j/tensordata/archive/master.zip
 $ pip install https://github.com/adler-j/adler/archive/master.zip
 ```
+
+You also need a recent version of tensorflow in order to use the `tf.contrib.gan` functionality.
