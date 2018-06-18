@@ -12,28 +12,27 @@ import tensordata
 import functools
 from sobolev_utils import sobolev_filter
 
-np.random.seed(0)
-tf.set_random_seed(0)
-
-sess = tf.InteractiveSession(config=tf.ConfigProto(log_device_placement=False))
-
-s_values = [-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0]
-p_values = [1.1, 1.3, 1.5, 2.0, 3.0, 4.0, 5.0, 10.0]
-index = int(sys.argv[1])
-EXPONENT = 2  # p_values[index]
+# User selectable parameters
+EXPONENT = 2
 SOBOLEV_C = 5.0
-SOBOLEV_S = 0  # s_values[index]
-
-name = 'cifar10_sobolev_5/p={}s={}'.format(EXPONENT, SOBOLEV_S)
-
-size = 32
+SOBOLEV_S = 0
 MAX_ITERS = 100000
 SUMMARY_FREQ = 10
 INCEPTION_FREQ = 1000
-DUAL_EXPONENT = 1 / (1 - 1/EXPONENT) if EXPONENT != 1 else np.inf
 BATCH_SIZE = 64
 BATCH_SIZE_TEST = 100
 reset = True
+
+# set seeds for reproducibility
+np.random.seed(0)
+tf.set_random_seed(0)
+
+sess = tf.InteractiveSession()
+
+# Training specific parameters
+name = 'cifar10_sobolev_5/p={}s={}'.format(EXPONENT, SOBOLEV_S)
+size = 32
+DUAL_EXPONENT = 1 / (1 - 1/EXPONENT) if EXPONENT != 1 else np.inf
 
 print('index={}, s={}, p={}, q={}'.format(index, SOBOLEV_S, EXPONENT, DUAL_EXPONENT))
 
