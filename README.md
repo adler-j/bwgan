@@ -1,5 +1,5 @@
 # BWGAN
-Code for the paper "Banach Wasserstein GAN".
+Code for the paper [Banach Wasserstein GAN](https://arxiv.org/abs/1806.06621).
 
 # Description
 Traditional [WGAN](https://arxiv.org/abs/1701.07875) uses an approximation of the Wasserstein metric to opimize the generator. This Wasserstein metric in turn depends upon an underlying metric on _images_ which is taken to be the <img src="https://latex.codecogs.com/svg.latex?%5Cell%5E2"> norm
