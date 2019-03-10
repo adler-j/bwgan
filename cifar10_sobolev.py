@@ -142,7 +142,7 @@ def resblock_optimized(x, filters):
         update = apply_conv(x, filters=filters)
         update = conv_meanpool(activation(update), filters=filters)
 
-        skip = meanpool_conv(x, filters=128, kernel_size=1, he_init=False)
+        skip = meanpool_conv(x, filters=filters, kernel_size=1, he_init=False)
         return skip + update
 
 
